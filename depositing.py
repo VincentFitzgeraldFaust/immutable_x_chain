@@ -14,13 +14,15 @@ class MoneyIn:
 
         while True:
             data = self.get_main_request()
-            if data['remaining'] == 1 :
+            if data['remaining'] == 1 : # means there are more results to query 
                 self.get_main_request()
                 self.json_elements(data)
                 self.cursor = self.cursor_helper(data)
 
             else:
                 break 
+        
+        # return results and store as a dataframe 
 
         self.df = pd.DataFrame(self.json_elements(data)) 
         self.df.columns = self.df.columns.str.upper() 

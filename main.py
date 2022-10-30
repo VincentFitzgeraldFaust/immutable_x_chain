@@ -14,6 +14,7 @@ def main():
     today = today.strftime('%Y-%m-%d')
     yesterday = yesterday.strftime('%Y-%m-%d') 
 
+    #creating objects across deposits, withdrawals, mints, transfer and orders endpoints respectively 
     
     money_in = MoneyIn(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
