@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 
 
-class OrderUp:
+class Order:
     
     def __init__(self, parameters):
         self.parameters = parameters
@@ -58,7 +58,7 @@ class OrderUp:
         else:
             buy_quantity = element['buy']['data']['quantity']
         
-        order = {
+        orderer = {
             'timestamp' : timestamp ,
             'order_id' : order_id,
             'user': user, 
@@ -70,7 +70,7 @@ class OrderUp:
             'buy_quantity' : buy_quantity
         }
         
-        self.orders.append(order)
+        self.orders.append(orderer)
         return self.orders
 
 

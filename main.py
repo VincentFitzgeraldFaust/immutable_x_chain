@@ -1,10 +1,10 @@
 import datetime 
 
-from depositing import MoneyIn
-from withdrawing import MoneyOut
-from minting import Creation
-from transferring import Transference
-from ordering import OrderUp
+from depositing import Deposit
+from withdrawing import Withdraw
+from minting import Mint
+from transferring import Transfer
+from ordering import Order
 
 
 def main():
@@ -16,25 +16,25 @@ def main():
 
     #creating objects across deposits, withdrawals, mints, transfer and orders endpoints respectively 
     
-    money_in = MoneyIn(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
+    money_in = Deposit(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
+                                     'max_timestamp' : f'{yesterday}T23:59:59.99Z',
+                                     'direction' : 'asc'})
+    
+    money_out = Withdraw(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
                                      'direction' : 'asc'})
 
-    money_out = MoneyOut(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
-                                     'max_timestamp' : f'{yesterday}T23:59:59.99Z',
-                                     'direction' : 'asc'})
-
-    gods_creates = Creation(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
+    gods_creates = Mint(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
                                      'token_address' : '0xacb3c6a43d15b907e8433077b6d38ae40936fe2c', 
                                      'direction' : 'asc'})
     
-    gods_moves = Transference(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
+    gods_moves = Transfer(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
                                      'token_address' : '0xacb3c6a43d15b907e8433077b6d38ae40936fe2c',
                                      'direction' : 'asc'})
     
-    gods_orders = OrderUp(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
+    gods_orders = Order(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                         'max_timestamp' : f'{yesterday}T23:59:59.99Z',
                                         'order_by' : 'timestamp', 
                                         'direction' : 'asc',
@@ -42,8 +42,7 @@ def main():
                                         })
     
 
-
-
+  
 
 
 

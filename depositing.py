@@ -2,7 +2,7 @@ import requests
 import pandas as pd 
 
 
-class MoneyIn:
+class Deposit:
     
     def __init__(self, parameters):
         self.parameters = parameters
@@ -42,7 +42,7 @@ class MoneyIn:
             token_address = element['token']['data']['token_address'] 
             quantity = float(element['token']['data']['quantity']) / 10 ** float(element['token']['data']['decimals'])
 
-            deposit = {
+            depositer = {
                 'timestamp' : timestamp ,
                 'user': user, 
                 'currency': currency,
@@ -50,7 +50,7 @@ class MoneyIn:
                 'quantity': quantity
             }
             
-            self.deposits.append(deposit)
+            self.deposits.append(depositer)
         return self.deposits 
 
 

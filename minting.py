@@ -2,7 +2,7 @@ import requests
 import pandas as pd 
 
 
-class Creation:
+class Mint:
 
     def __init__(self,parameters):
         self.parameters = parameters
@@ -41,7 +41,7 @@ class Creation:
             currency = element['token']['type'] 
             token_address = element['token']['data']['token_address'] 
 
-            mint = {
+            minter = {
                 'transaction_id' : transaction_id, 
                 'timestamp' : timestamp ,
                 'user': user, 
@@ -49,7 +49,7 @@ class Creation:
                 'token_address': token_address, 
             }
             
-            self.mints.append(mint)
+            self.mints.append(minter)
         return self.mints
 
 

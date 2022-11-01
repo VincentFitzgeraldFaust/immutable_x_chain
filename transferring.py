@@ -2,7 +2,7 @@ import requests
 import pandas as pd 
 
 
-class Transference:
+class Transfer:
 
     def __init__(self,parameters):
         self.parameters = parameters
@@ -43,7 +43,7 @@ class Transference:
             token_address = element['token']['data']['token_address']
             quantity = float(element['token']['data']['quantity']) /  10 ** float(element['token']['data']['decimals'])
 
-            transfer = {
+            transferer = {
                 'timestamp' : timestamp ,
                 'transaction_id' : transaction_id,
                 'user' : user, 
@@ -53,7 +53,7 @@ class Transference:
                 'quantity' : quantity         
             }
             
-            self.transfers.append(transfer)
+            self.transfers.append(transferer)
         return self.transfers
 
 

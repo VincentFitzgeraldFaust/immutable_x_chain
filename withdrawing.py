@@ -2,7 +2,7 @@ import requests
 import pandas as pd 
 
 
-class MoneyOut:
+class Withdraw:
 
     def __init__(self, parameters):
         self.base = 'https://api.x.immutable.com/v1/'
@@ -43,7 +43,7 @@ class MoneyOut:
             quantity = float(element['token']['data']['quantity']) / 10 ** float(element['token']['data']['decimals'])
             token_address = element['token']['data']['token_address']
 
-            withdraw = {
+            withdrawer = {
             'timestamp' : timestamp ,
             'transaction_id' : transaction_id,
             'timestamp' : timestamp,
@@ -54,7 +54,7 @@ class MoneyOut:
             'token_address' : token_address
         }
         
-            self.withdrawals.append(withdraw)
+            self.withdrawals.append(withdrawer)
         return self.withdrawals
 
 
