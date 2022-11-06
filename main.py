@@ -19,11 +19,11 @@ def main():
     money_in = Deposit(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
                                      'direction' : 'asc'})
-    
+        
     money_out = Withdraw(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
                                      'direction' : 'asc'})
-
+    
     gods_creates = Mint(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
                                      'token_address' : '0xacb3c6a43d15b907e8433077b6d38ae40936fe2c', 
@@ -41,7 +41,11 @@ def main():
                                         'sell_token_address' : '0xacb3c6a43d15b907e8433077b6d38ae40936fe2c'
                                         })
     
-
+    print(money_in.df)
+    print(money_out.df)
+    print(gods_creates.df)
+    print(gods_moves.df)
+    print(gods_orders.df)
   
 
 

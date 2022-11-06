@@ -1,39 +1,20 @@
 import requests
-import pandas as pd 
+from utility import Crypto
 
 
-class Deposit:
+
+class Deposit(Crypto):
     
     def __init__(self, parameters):
-        self.parameters = parameters
-        self.base = 'https://api.x.immutable.com/v1/'
         self.deposit_endpoint = 'deposits'
-        self.cursor = ""
         self.deposits = []
-        self.df = None
-
-        while True:
-            data = self.get_main_request()
-            if data['remaining'] == 1 : # means there are more results to query 
-                self.get_main_request()
-                self.json_elements(data)
-                self.cursor = self.cursor_helper(data)
-
-            else:
-                break 
-        
-        # return results and store as a dataframe 
-
-        self.df = pd.DataFrame(self.json_elements(data)) 
-        self.df.columns = self.df.columns.str.upper() 
-
+        super().__init__(parameters)
 
     def get_main_request(self): 
         session = requests.get(url=f'{self.base}{self.deposit_endpoint}?cursor={self.cursor}', params=self.parameters)
         session.raise_for_status()
         return session.json()
     
-
     def json_elements(self, data):
         for element in data['result']:
             timestamp = element['timestamp'].split('T')[0]
@@ -54,8 +35,6 @@ class Deposit:
         return self.deposits 
 
 
-    def cursor_helper(self, data):
-        return data['cursor']
 
 
 
