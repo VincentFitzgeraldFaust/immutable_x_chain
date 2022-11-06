@@ -41,11 +41,6 @@ def main():
                                         'sell_token_address' : '0xacb3c6a43d15b907e8433077b6d38ae40936fe2c'
                                         })
     
-    print(money_in.df)
-    print(money_out.df)
-    print(gods_creates.df)
-    print(gods_moves.df)
-    print(gods_orders.df)
   
 
 
