@@ -42,6 +42,12 @@ def main():
                                         })
     
   
+    print(money_in.df)   
+    print(money_out.df)
+    print(gods_creates.df)
+    print(gods_moves.df)
+    print(gods_orders.df)
+
 
 
 
