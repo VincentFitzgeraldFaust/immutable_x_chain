@@ -1,4 +1,3 @@
-import requests
 from utility import Crypto
 
 
