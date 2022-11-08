@@ -5,14 +5,9 @@ from utility import Crypto
 class Order(Crypto):
     
     def __init__(self, parameters):
-        self.deposit_endpoint = 'orders'
+        self.endpoint = 'orders'
         self.orders = []
         super().__init__(parameters)
-
-    def get_main_request(self): 
-        session = requests.get(url=f'{self.base}{self.deposit_endpoint}?cursor={self.cursor}', params=self.parameters)
-        session.raise_for_status()
-        return session.json()
 
     def json_elements(self, data):
         for element in data['result']:

@@ -1,4 +1,5 @@
 import pandas as pd 
+import requests
 
 class Crypto():
 
@@ -7,7 +8,7 @@ class Crypto():
         self.parameters = parameters
         self.base = 'https://api.x.immutable.com/v1/'
         self.cursor = ""
-    
+
         while True:
             data = self.get_main_request()
             if data['remaining'] == 1 : # means there are more results to query 
@@ -22,6 +23,11 @@ class Crypto():
 
         self.df = pd.DataFrame(self.json_elements(data)) 
         self.df.columns = self.df.columns.str.upper() 
-    
+
+    def get_main_request(self): 
+        session = requests.get(url=f'{self.base}{self.endpoint}?cursor={self.cursor}', params=self.parameters)
+        session.raise_for_status()
+        return session.json()
+
     def cursor_helper(self, data):
         return data['cursor']

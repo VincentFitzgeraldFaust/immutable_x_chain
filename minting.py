@@ -5,14 +5,9 @@ from utility import Crypto
 class Mint(Crypto):
 
     def __init__(self,parameters):
-        self.mint_endpoint = 'mints'
+        self.endpoint = 'mints'
         self.mints = []
         super().__init__(parameters)
-
-    def get_main_request(self): 
-        session = requests.get(url=f'{self.base}{self.mint_endpoint}?cursor={self.cursor}', params=self.parameters)
-        session.raise_for_status()
-        return session.json()
 
     def json_elements(self, data):
         for element in data['result']:
