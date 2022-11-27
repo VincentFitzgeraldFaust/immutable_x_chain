@@ -3,9 +3,11 @@ from utility import Crypto
 
 class Withdraw(Crypto):
 
-    def __init__(self, parameters):
+    def __init__(self, parameters, today, yesterday):
         self.endpoint = 'withdrawals'
         self.withdrawals = []
+        self.today = today
+        self.yesterday = yesterday 
         super().__init__(parameters)
 
     def json_elements(self, data):

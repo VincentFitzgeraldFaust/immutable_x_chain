@@ -1,4 +1,5 @@
 import pandas as pd 
+import yfinance as yf 
 import requests
 
 class Crypto():
@@ -19,10 +20,14 @@ class Crypto():
             else:
                 break 
         
-        # return results and store as a dataframe 
-
-        self.df = pd.DataFrame(self.json_elements(data)) 
-        self.df.columns = self.df.columns.str.upper() 
+        if self.endpoint in ['mints', 'transfers']:
+            self.df = pd.DataFrame(self.json_elements(data)) 
+            self.df.columns = self.df.columns.str.upper() 
+        else:
+            self.df = pd.DataFrame(self.json_elements(data)) 
+            conversion_rate_eth_usd = self.financials()
+            self.df['daily_avg_value']=self.df['timestamp'].map(conversion_rate_eth_usd)
+            self.df.columns=self.df.columns.str.upper()
 
     def get_main_request(self): 
         session = requests.get(url=f'{self.base}{self.endpoint}?cursor={self.cursor}', params=self.parameters)
@@ -31,3 +36,9 @@ class Crypto():
 
     def cursor_helper(self, data):
         return data['cursor']
+
+    def financials(self):
+        conversion=yf.download(tickers="ETH-USD", start=self.yesterday, end=self.today)
+        eth_usd_avg = (conversion['High'] + conversion['Low']) /2
+        return eth_usd_avg
+

@@ -18,13 +18,17 @@ def main():
     
     hro_deposits = Deposit(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
-                                     'token_address' : '0x8cb332602d2f614b570c7631202e5bf4bb93f3f6', 
-                                     'direction' : 'asc'})
+                                    'token_address' : '0x8cb332602d2f614b570c7631202e5bf4bb93f3f6', 
+                                     'direction' : 'asc'},
+                                     today=today, 
+                                     yesterday=yesterday)
         
     hro_withdraws = Withdraw(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
-                                     'token_address' : '0x8cb332602d2f614b570c7631202e5bf4bb93f3f6', 
-                                     'direction' : 'asc'})
+                                    'token_address' : '0x8cb332602d2f614b570c7631202e5bf4bb93f3f6', 
+                                     'direction' : 'asc'},
+                                     today=today, 
+                                     yesterday=yesterday)
     
     hro_creates = Mint(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
@@ -41,7 +45,9 @@ def main():
                                         'order_by' : 'timestamp', 
                                         'direction' : 'asc',
                                         'sell_token_address' : '0x8cb332602d2f614b570c7631202e5bf4bb93f3f6'
-                                        })
+                                        },
+                                     today=today, 
+                                     yesterday=yesterday)
     
   
     print(hro_deposits.df)   
