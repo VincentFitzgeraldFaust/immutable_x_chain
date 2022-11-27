@@ -21,7 +21,7 @@ def main():
                                      'token_address' : '0x8cb332602d2f614b570c7631202e5bf4bb93f3f6', 
                                      'direction' : 'asc'})
         
-    hro_out = Withdraw(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
+    hro_withdraws = Withdraw(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
                                      'token_address' : '0x8cb332602d2f614b570c7631202e5bf4bb93f3f6', 
                                      'direction' : 'asc'})
@@ -44,8 +44,8 @@ def main():
                                         })
     
   
-    print(money_in.df)   
-    print(money_out.df)
+    print(hro_deposits.df)   
+    print(hro_withdraws.df)
     print(hro_creates.df)
     print(hro_moves.df)
     print(hro_orders.df)
