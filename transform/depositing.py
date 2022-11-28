@@ -4,11 +4,9 @@ from utility import Crypto
 
 class Deposit(Crypto):
     
-    def __init__(self, parameters, today, yesterday):
+    def __init__(self, parameters):
         self.endpoint = 'deposits'
         self.deposits = []
-        self.today = today
-        self.yesterday = yesterday
         super().__init__(parameters)
     
     def json_elements(self, data):

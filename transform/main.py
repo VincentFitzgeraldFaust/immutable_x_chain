@@ -19,16 +19,12 @@ def main():
     hro_deposits = Deposit(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
                                     'token_address' : '0x8cb332602d2f614b570c7631202e5bf4bb93f3f6', 
-                                     'direction' : 'asc'},
-                                     today=today, 
-                                     yesterday=yesterday)
+                                     'direction' : 'asc'})
         
     hro_withdraws = Withdraw(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',
                                     'token_address' : '0x8cb332602d2f614b570c7631202e5bf4bb93f3f6', 
-                                     'direction' : 'asc'},
-                                     today=today, 
-                                     yesterday=yesterday)
+                                     'direction' : 'asc'})
     
     hro_creates = Mint(parameters = {'min_timestamp' : f'{yesterday}T00:00:00.00Z', 
                                      'max_timestamp' : f'{yesterday}T23:59:59.99Z',

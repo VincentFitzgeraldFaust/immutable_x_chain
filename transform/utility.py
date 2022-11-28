@@ -20,7 +20,7 @@ class Crypto():
             else:
                 break 
         
-        if self.endpoint in ['mints', 'transfers']:
+        if self.endpoint in ['mints', 'transfers', 'deposits', 'withdrawals']:
             self.df = pd.DataFrame(self.json_elements(data)) 
             self.df.columns = self.df.columns.str.upper() 
         else:
