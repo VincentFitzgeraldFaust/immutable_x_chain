@@ -13,6 +13,7 @@ class Order(Crypto):
     def json_elements(self, data):
         for element in data['result']:
             timestamp = element['timestamp'].split('T')[0]
+            updated_timestamp = element['updated_timestamp'].split('T')[0]
             order_id = element['order_id']
             user = element['user'] 
             sell_type = element['sell']['type']
@@ -24,7 +25,8 @@ class Order(Crypto):
             buy_quantity = float(element['buy']['data']['quantity']) / 10 ** float(element['buy']['data']['decimals'])
         
             orderer = {
-                'timestamp' : timestamp ,
+                'timestamp' : timestamp,
+                'updated_timestamp' : updated_timestamp, 
                 'order_id' : order_id,
                 'user': user, 
                 'sell_type' : sell_type, 

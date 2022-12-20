@@ -25,8 +25,8 @@ class Crypto():
             self.df.columns = self.df.columns.str.upper() 
         else:
             self.df = pd.DataFrame(self.json_elements(data)) 
-            conversion_rate_eth_usd = self.financials()
-            self.df['daily_avg_value']=self.df['timestamp'].map(conversion_rate_eth_usd)
+            conversion_rate = self.financials()
+            self.df['daily_avg_value'] = self.df['updated_timestamp'].map(conversion_rate)
             self.df.columns=self.df.columns.str.upper()
 
     def get_main_request(self): 
@@ -39,6 +39,6 @@ class Crypto():
 
     def financials(self):
         conversion=yf.download(tickers="ETH-USD", start=self.yesterday, end=self.today)
-        eth_usd_avg = (conversion['High'] + conversion['Low']) /2
-        return eth_usd_avg
+        avg_daily_value = (conversion['High'] + conversion['Low']) /2
+        return avg_daily_value
 
