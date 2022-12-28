@@ -1,10 +1,10 @@
 import datetime
 
 from depositing import Deposit
-from withdrawing import Withdraw
 from minting import Mint
-from transferring import Transfer
 from ordering import Order
+from transferring import Transfer
+from withdrawing import Withdraw
 
 
 def main():
@@ -44,9 +44,6 @@ def main():
                                    },
                        today=today,
                        yesterday=yesterday)
-
-
-
 
     print(hro_deposits.df)
     print(hro_withdraws.df)
