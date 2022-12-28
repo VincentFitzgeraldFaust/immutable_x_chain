@@ -1,19 +1,14 @@
-# Immutable X Chain Project
+# HRO Project Analysis 
 
 ### Description
 
-This code pulls down relevant God's Unchained collection data from the Immutable X chain found here: https://immutascan.io/address/0xacb3c6a43d15b907e8433077b6d38ae40936fe2c?tab=1&forSale=true
+This code pulls down relevant HRO project data from the Immutable X chain found here: https://immutascan.io/address/0x8cb332602d2f614b570c7631202e5bf4bb93f3f6?chartTab=TradeVolume
 
 
 ### What's the point? 
 
-Unlike the f2p space, web3 has a dearth of central analytics reporting. It can be difficult to understand how chains are performing, let alone specific projects. The goal here is to productionalize the process of retrieving data from immutable x's top collection so that it can drive insights into the performance of the chain itself, as well as serve as a baseline for future web3 products. 
+Unlike the f2p space, web3 has a dearth of central analytics reporting. It can be difficult to understand how chains are performing, let alone specific projects. I found this particular project interesting because it's taking a known commodity (comics) and listing it on the open market. While their might be new games in the future that shows how to best make use of this tech, I believe it will be the companies that already have existing brands that will best leverage web3. 
 
-
-### Considerations 
-
-1. To query data from multiple collections, a separate api call needs to be made. This, obviously will drastically slow down the performance of the program
-2. Pulling data even for one collection takes some time. To get 1 days of data across the meaninful endpoints, it takes ~ 1 hour 
 
 
 ### Future Development Ideas 
